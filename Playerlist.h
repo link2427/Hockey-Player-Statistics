@@ -5,16 +5,19 @@
 class BST {
 private:
 	Player* val;
-	BST* left;
-	BST* right;
-	int size;
 
+	BST* right;
+	BST* left;
 public:
+	void writePlayersData(BST* currentNode, std::ostream& outfile);
+	~BST();
 	BST();
 	BST(Player *player);
-	BST* insertPlayer(BST* currentNode, Player *player); // function to add a player to list
-	void free(BST* currentNode); // function to clear list
+	void insertPlayer(BST* currentNode, Player *player); // function to add a player to list
 	int getCount(BST* currentNode); // function to get size
-	std::string print(BST* currentNode);
+	void print(BST* currentNode);
 	double getTotalCaloriesBurned(); // function to get total calories burned
+	void getPlayers(BST* currentNode, std::string inFileName);
+	void writeData(std::string outFileName, BST *players);
+	void free(BST* currentNode); // function to clear list
 };

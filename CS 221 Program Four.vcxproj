@@ -135,6 +135,9 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Playerlist.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="sample.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
