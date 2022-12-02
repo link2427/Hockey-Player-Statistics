@@ -4,8 +4,8 @@
 // 12/1/2022
 // This program will use a binary search tree to read players from an input data file.
 // All of the players will be stored in the tree and have each player's average computed.
-// The user has the option to remove one of these players from the list.
-// The results will be written to a file.
+// The results will be written to a file, and printed to console in reverse order.
+
 
 
 #include "Playerlist.h"
@@ -17,35 +17,36 @@ std::string getInputFileName();
 std::string getOutputFileName(); 
 
 
+
 //Main
 int main() {
-	//Create a player list
+	//Create a player tree
 	BST* playerTree = new BST();
+	welcomeUser(); // Welcome the user
 
-	welcomeUser();
-	char userInput = NULL;
-	std::string firstName;
-	std::string lastName;
+	// Get preferred file names
 	std::string inFileName = getInputFileName();
 	std::string outFileName = getOutputFileName();
 
 	
 	std::cout << std::endl << "Reading Players from: " << inFileName << std::endl;
-	
-	
-
 	// Construct Tree
 	playerTree->getPlayers(playerTree, inFileName);
 
 	// Print Tree
+	std::cout << std::endl << "The tree printed in reverse order: " << std::endl;
 	playerTree->print(playerTree);
+	// Write tree to file
 	playerTree->writeData(outFileName, playerTree);
 
 	// Ending
 	std::cout << "The data has been written to you output file: " << outFileName << std::endl << std::endl;
 	std::cout << "End of Program 3" << std::endl;
+
+	// Calling deconstructor
 	delete playerTree;
 }
+
 
 
 //Welcomes the user
@@ -57,6 +58,7 @@ void welcomeUser() {
 }
 
 
+
 //Get input file name
 std::string getInputFileName() {
 	std::cout << "Enter the name of your input file: ";
@@ -65,6 +67,7 @@ std::string getInputFileName() {
 	std::cin >> inFileName;
 	return inFileName;
 }
+
 
 
 //Get output file name

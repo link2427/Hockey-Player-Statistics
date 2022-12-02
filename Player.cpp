@@ -1,4 +1,7 @@
 #include "Player.h"
+
+
+
 //Default constructor
 Player::Player() {
 	fName = "";
@@ -9,6 +12,9 @@ Player::Player() {
 		stats[i] = 0;
 	}
 }
+
+
+
 //Constructor that takes arguments
 Player::Player(std::string firstName, std::string lastName, int age, int shotsTargetFor, int shotsTargetAgainst, int missedShotsFor, int missedShotsAgainst, int met, int bodyWeight) {
 	fName = firstName;
@@ -23,18 +29,30 @@ Player::Player(std::string firstName, std::string lastName, int age, int shotsTa
 	stats[5] = met;
 	stats[6] = bodyWeight;
 }
+
+
+
 //Get first name
 std::string Player::getFName() {
 	return fName;
 }
+
+
+
 //Get last name
 std::string Player::getLName() {
 	return lName;
 }
+
+
+
 //Get statistics
 int Player::getStat(int index) {
 	return stats[index];
 }
+
+
+
 //Get fenwick
 double Player::getFenwick() {
 	double numerator = (double)stats[1] + (double)stats[3];
@@ -42,6 +60,9 @@ double Player::getFenwick() {
 
 	return numerator / denominator;
 }
+
+
+
 //Get calories burned
 double Player::getCaloriesBurned() {
 	double result = ((double)stats[5] * (double)stats[6] * 3.5) / 200;
